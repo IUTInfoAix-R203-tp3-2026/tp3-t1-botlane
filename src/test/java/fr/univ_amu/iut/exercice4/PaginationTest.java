@@ -2,7 +2,6 @@ package fr.univ_amu.iut.exercice4;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -54,25 +53,21 @@ class PaginationTest {
     assertThat(new Pagination(7, 15).afficher()).isEqualTo("1 ... 6 (7) 8 ... 15");
   }
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   void la_pagination_de_15_pages_avec_courant_pres_du_debut_n_affiche_qu_une_ellipse_a_droite() {
     assertThat(new Pagination(3, 15).afficher()).isEqualTo("1 2 (3) 4 ... 15");
   }
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   void la_pagination_de_15_pages_avec_courant_pres_de_la_fin_n_affiche_qu_une_ellipse_a_gauche() {
     assertThat(new Pagination(13, 15).afficher()).isEqualTo("1 ... 12 (13) 14 15");
   }
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   void la_pagination_de_15_pages_avec_courant_en_seconde_position() {
     assertThat(new Pagination(2, 15).afficher()).isEqualTo("1 (2) 3 ... 15");
   }
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   void la_pagination_de_15_pages_avec_courant_en_avant_derniere_position() {
     assertThat(new Pagination(14, 15).afficher()).isEqualTo("1 ... 13 (14) 15");
