@@ -32,6 +32,12 @@ public class Pagination {
       for (int i = 0; i < total; i = i + 1) {
         result.add(i + 1);
       }
+    } else {
+      result.add(1);
+      if (courant > 2) result.add(courant - 1);
+      if (courant != 1 && courant != total) result.add(courant);
+      if (courant < total - 1) result.add(courant + 1);
+      result.add(total);
     }
     return result;
   }
@@ -42,7 +48,7 @@ public class Pagination {
   }
 
   private String separateurEntre(int valeur1, int valeur2) {
-    if (valeur2 - valeur1 > 1) return "...";
+    if (valeur2 - valeur1 > 1) return " ... ";
     return " ";
   }
 
@@ -57,11 +63,11 @@ public class Pagination {
     // - d'abord le cas "total <= 7" (affichage complet)
     // - puis le cas "beaucoup de pages" avec gestion des ellipses
     ArrayList<Integer> pageAfficher = pageAAfficher();
-    for (int i = 0; i < total - 1; i = i + 1) {
+    for (int i = 0; i < pageAfficher.size() - 1; i = i + 1) {
       sortie.append(formatPage(pageAfficher.get(i)));
       sortie.append(separateurEntre(pageAfficher.get(i), pageAfficher.get(i + 1)));
     }
-    sortie.append(formatPage(pageAfficher.get(total - 1)));
+    sortie.append(formatPage(pageAfficher.get(pageAfficher.size() - 1)));
     return sortie.toString();
   }
 }
