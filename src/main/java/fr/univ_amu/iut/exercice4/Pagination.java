@@ -15,6 +15,26 @@ public class Pagination {
     this.total = total;
   }
 
+  private int[] pageAAfficher() {
+    int[] result = new int[total];
+    if (total <= 7) {
+      for (int i = 0; i < total; i = i + 1) {
+        result[i] = i + 1;
+      }
+    }
+    return result;
+  }
+
+  private String formatPage(int valeur) {
+    if (valeur == courant) return "(" + valeur + ")";
+    return String.valueOf(valeur);
+  }
+
+  private String separateurEntre(int valeur1, int valeur2) {
+    if (valeur2 - valeur1 > 1) return "...";
+    return " ";
+  }
+
   /// Retourne la représentation textuelle de la barre de pagination.
   ///
   /// Format : pages séparées par des espaces, page courante entre parenthèses,
@@ -25,6 +45,12 @@ public class Pagination {
     // du README. Activez les tests dans l'ordre, ils vous guident :
     // - d'abord le cas "total <= 7" (affichage complet)
     // - puis le cas "beaucoup de pages" avec gestion des ellipses
-    return "(1)";
+    int[] pageAfficher = pageAAfficher();
+    for (int i = 0; i < total - 1; i = i + 1) {
+      sortie.append(formatPage(pageAfficher[i]));
+      sortie.append(separateurEntre(pageAfficher[i], pageAfficher[i + 1]));
+    }
+    sortie.append(formatPage(pageAfficher[total - 1]));
+    return sortie.toString();
   }
 }
