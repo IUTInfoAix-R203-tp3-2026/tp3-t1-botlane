@@ -1,5 +1,7 @@
 package fr.univ_amu.iut.exercice4;
 
+import java.util.ArrayList;
+
 /// Kata 4 - Pagination.
 ///
 /// Kata algorithmique avec beaucoup de cas limites. Idéal pour pratiquer la
@@ -15,11 +17,20 @@ public class Pagination {
     this.total = total;
   }
 
-  private int[] pageAAfficher() {
-    int[] result = new int[total];
+  /**
+   * private int[] pageAAfficher() { if (total <= 7) { int[] result = new int[total]; for (int i =
+   * 0; i < total; i = i + 1) { result[i] = i + 1; } return result; } else { if (courant < 3 ||
+   * courant > total - 2) { int[] result = new int[4]; result[0] = 1; if (courant == 2) { result[1]
+   * = courant; result[2] = courant + 1; } else { result[1] = courant - 1; result[2] = courant; }
+   * result[3] = total; return result; } else { int[] result = new int[5]; result[0] = 1; result[1]
+   * = courant - 1; result[2] = courant; result[3] = courant + 1; result[4] = total; return result;
+   * } } }
+   */
+  private ArrayList<Integer> pageAAfficher() {
+    ArrayList<Integer> result = new ArrayList<>();
     if (total <= 7) {
       for (int i = 0; i < total; i = i + 1) {
-        result[i] = i + 1;
+        result.add(i + 1);
       }
     }
     return result;
@@ -45,12 +56,12 @@ public class Pagination {
     // du README. Activez les tests dans l'ordre, ils vous guident :
     // - d'abord le cas "total <= 7" (affichage complet)
     // - puis le cas "beaucoup de pages" avec gestion des ellipses
-    int[] pageAfficher = pageAAfficher();
+    ArrayList<Integer> pageAfficher = pageAAfficher();
     for (int i = 0; i < total - 1; i = i + 1) {
-      sortie.append(formatPage(pageAfficher[i]));
-      sortie.append(separateurEntre(pageAfficher[i], pageAfficher[i + 1]));
+      sortie.append(formatPage(pageAfficher.get(i)));
+      sortie.append(separateurEntre(pageAfficher.get(i), pageAfficher.get(i + 1)));
     }
-    sortie.append(formatPage(pageAfficher[total - 1]));
+    sortie.append(formatPage(pageAfficher.get(total - 1)));
     return sortie.toString();
   }
 }

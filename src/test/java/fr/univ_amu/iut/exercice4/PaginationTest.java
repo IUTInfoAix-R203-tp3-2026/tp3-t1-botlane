@@ -34,25 +34,21 @@ class PaginationTest {
     assertThat(new Pagination(3, 5).afficher()).isEqualTo("1 2 (3) 4 5");
   }
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   void la_pagination_de_5_pages_avec_courant_au_debut_affiche_toutes_les_pages() {
     assertThat(new Pagination(1, 5).afficher()).isEqualTo("(1) 2 3 4 5");
   }
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   void la_pagination_de_5_pages_avec_courant_a_la_fin_affiche_toutes_les_pages() {
     assertThat(new Pagination(5, 5).afficher()).isEqualTo("1 2 3 4 (5)");
   }
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   void la_pagination_de_7_pages_affiche_toutes_les_pages() {
     assertThat(new Pagination(4, 7).afficher()).isEqualTo("1 2 3 (4) 5 6 7");
   }
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   void la_pagination_de_15_pages_avec_courant_au_milieu_affiche_des_ellipses_des_deux_cotes() {
     assertThat(new Pagination(7, 15).afficher()).isEqualTo("1 ... 6 (7) 8 ... 15");
