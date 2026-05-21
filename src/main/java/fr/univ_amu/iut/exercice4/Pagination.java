@@ -26,19 +26,26 @@ public class Pagination {
    * = courant - 1; result[2] = courant; result[3] = courant + 1; result[4] = total; return result;
    * } } }
    */
+  private ArrayList<Integer> inferieur7(ArrayList<Integer> result) {
+    for (int i = 0; i < total; i = i + 1) {
+      result.add(i + 1);
+    }
+    return result;
+  }
+
+  private ArrayList<Integer> superieur7(ArrayList<Integer> result) {
+    result.add(1);
+    if (courant > 2) result.add(courant - 1);
+    if (courant != 1 && courant != total) result.add(courant);
+    if (courant < total - 1) result.add(courant + 1);
+    result.add(total);
+    return result;
+  }
+
   private ArrayList<Integer> pageAAfficher() {
     ArrayList<Integer> result = new ArrayList<>();
-    if (total <= 7) {
-      for (int i = 0; i < total; i = i + 1) {
-        result.add(i + 1);
-      }
-    } else {
-      result.add(1);
-      if (courant > 2) result.add(courant - 1);
-      if (courant != 1 && courant != total) result.add(courant);
-      if (courant < total - 1) result.add(courant + 1);
-      result.add(total);
-    }
+    if (total <= 7) result = inferieur7(result);
+    else result = superieur7(result);
     return result;
   }
 
@@ -52,22 +59,26 @@ public class Pagination {
     return " ";
   }
 
-  /// Retourne la représentation textuelle de la barre de pagination.
-  ///
-  /// Format : pages séparées par des espaces, page courante entre parenthèses,
-  /// `...` pour combler les trous quand il y a plus de 7 pages au total.
-  public String afficher() {
-    StringBuilder sortie = new StringBuilder();
-    // TODO kata 4 : construire la chaîne de pagination selon les règles
-    // du README. Activez les tests dans l'ordre, ils vous guident :
-    // - d'abord le cas "total <= 7" (affichage complet)
-    // - puis le cas "beaucoup de pages" avec gestion des ellipses
-    ArrayList<Integer> pageAfficher = pageAAfficher();
+  private void pageAff(ArrayList<Integer> pageAfficher, StringBuilder sortie) {
     for (int i = 0; i < pageAfficher.size() - 1; i = i + 1) {
       sortie.append(formatPage(pageAfficher.get(i)));
       sortie.append(separateurEntre(pageAfficher.get(i), pageAfficher.get(i + 1)));
     }
     sortie.append(formatPage(pageAfficher.get(pageAfficher.size() - 1)));
+  }
+
+  /// Retourne la représentation textuelle de la barre de pagination.
+  ///
+  /// Format : pages séparées par des espaces, page courante entre parenthèses,
+  /// `...` pour combler les trous quand il y a plus de 7 pages au total.
+  public String afficher() {
+    // TODO kata 4 : construire la chaîne de pagination selon les règles
+    // du README. Activez les tests dans l'ordre, ils vous guident :
+    // - d'abord le cas "total <= 7" (affichage complet)
+    // - puis le cas "beaucoup de pages" avec gestion des ellipses
+    StringBuilder sortie = new StringBuilder();
+    ArrayList<Integer> pageAfficher = pageAAfficher();
+    pageAff(pageAfficher, sortie);
     return sortie.toString();
   }
 }
