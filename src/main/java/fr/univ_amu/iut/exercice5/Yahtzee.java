@@ -27,6 +27,9 @@ public class Yahtzee {
   public static int yahtzee(int d1, int d2, int d3, int d4, int d5) {
     int score = 0;
     // TODO kata 5 : 50 si d1 == d2 == d3 == d4 == d5, 0 sinon.
+    if (d1 == d2 && d2 == d3 && d3 == d4 && d4 == d5) {
+      score += 50;
+    }
     return score;
   }
 
@@ -35,6 +38,11 @@ public class Yahtzee {
   public static int nombres(int face, int[] des) {
     int total = 0;
     // TODO kata 5 : additionner les dés qui valent 'face'.
+    for (int i = 0; i < des.length; i = i + 1) {
+      if (des[i] == face) {
+        total += face;
+      }
+    }
     return total;
   }
 
