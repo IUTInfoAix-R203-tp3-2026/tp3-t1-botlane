@@ -17,19 +17,16 @@ class YahtzeeTest {
 
   // ========= chance =========
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   void la_chance_donne_la_somme_des_des() {
     assertThat(Yahtzee.chance(1, 1, 3, 3, 6)).isEqualTo(14);
   }
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   void la_chance_avec_cinq_uns_vaut_5() {
     assertThat(Yahtzee.chance(1, 1, 1, 1, 1)).isEqualTo(5);
   }
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   void la_chance_avec_cinq_six_vaut_30() {
     assertThat(Yahtzee.chance(6, 6, 6, 6, 6)).isEqualTo(30);
@@ -37,7 +34,6 @@ class YahtzeeTest {
 
   // ========= yahtzee =========
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   void le_yahtzee_avec_cinq_quatre_vaut_50() {
     assertThat(Yahtzee.yahtzee(4, 4, 4, 4, 4)).isEqualTo(50);
