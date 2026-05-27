@@ -2,13 +2,15 @@ package fr.univ_amu.iut.exercice5;
 
 /// Kata 5 - Yahtzee scoring.
 ///
-/// Chaque méthode statique calcule le score selon sa règle pour un lancer de 5 dés. Le kata est
-/// un classique du refactoring (Yatzy Refactoring Kata) : les solutions "brute-force" fonctionnent
-/// vite, mais vous verrez que certaines règles partagent une structure (compter les occurrences de
-/// chaque face) qu'on peut factoriser.
+/// Chaque méthode statique calcule le score selon sa règle pour un lancer de 5
+/// dés. Le kata est un classique du refactoring (Yatzy Refactoring Kata) : les
+/// solutions "brute-force" fonctionnent vite, mais vous verrez que certaines
+/// règles partagent une structure (compter les occurrences de chaque face) qu'on
+/// peut factoriser.
 ///
-/// Conseil : implémentez chaque méthode en TDD puis, quand plusieurs sont vertes, cherchez une
-/// factorisation. C'est un bon entraînement au TP4 (Refactoring).
+/// Conseil : implémentez chaque méthode en TDD puis, quand plusieurs sont
+/// vertes, cherchez une factorisation. C'est un bon entraînement au
+/// TP4 (Refactoring).
 public class Yahtzee {
 
   private Yahtzee() {}
@@ -17,6 +19,7 @@ public class Yahtzee {
   public static int chance(int d1, int d2, int d3, int d4, int d5) {
     int somme = 0;
     // TODO kata 5 : sommer les 5 dés.
+    somme = d1 + d2 + d3 + d4 + d5;
     return somme;
   }
 
@@ -27,7 +30,8 @@ public class Yahtzee {
     return score;
   }
 
-  /// Somme des dés qui montrent la face demandée (utilisé pour ones, twos, ..., sixes).
+  /// Somme des dés qui montrent la face demandée (utilisé pour ones, twos,
+  /// ..., sixes).
   public static int nombres(int face, int[] des) {
     int total = 0;
     // TODO kata 5 : additionner les dés qui valent 'face'.
@@ -52,7 +56,8 @@ public class Yahtzee {
   /// Somme de 3 dés identiques, 0 sinon.
   public static int brelan(int d1, int d2, int d3, int d4, int d5) {
     int score = 0;
-    // TODO kata 5 : trouver la face qui apparaît au moins 3 fois, renvoyer 3 * face.
+    // TODO kata 5 : trouver la face qui apparaît au moins 3 fois, renvoyer 3 *
+    // face.
     return score;
   }
 
@@ -69,7 +74,8 @@ public class Yahtzee {
     return score;
   }
 
-  /// Somme des 5 dés si on a un brelan plus une paire d'une autre valeur, 0 sinon.
+  /// Somme des 5 dés si on a un brelan plus une paire d'une autre valeur,
+  /// 0 sinon.
   public static int full(int d1, int d2, int d3, int d4, int d5) {
     int score = 0;
     // TODO kata 5 : un brelan (une face 3 fois) + une paire (autre face 2 fois).
