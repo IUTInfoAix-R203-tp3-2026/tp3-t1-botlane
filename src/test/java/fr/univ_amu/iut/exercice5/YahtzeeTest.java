@@ -39,19 +39,16 @@ class YahtzeeTest {
     assertThat(Yahtzee.yahtzee(4, 4, 4, 4, 4)).isEqualTo(50);
   }
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   void le_yahtzee_avec_cinq_uns_vaut_50() {
     assertThat(Yahtzee.yahtzee(1, 1, 1, 1, 1)).isEqualTo(50);
   }
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   void le_yahtzee_avec_quatre_uns_et_un_deux_vaut_0() {
     assertThat(Yahtzee.yahtzee(1, 1, 1, 1, 2)).isZero();
   }
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   void le_yahtzee_avec_cinq_des_tous_differents_vaut_0() {
     assertThat(Yahtzee.yahtzee(1, 2, 3, 4, 5)).isZero();
