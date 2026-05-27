@@ -97,6 +97,20 @@ public class Yahtzee {
     int score = 0;
     // TODO kata 5 : trouver la face qui apparaît au moins 3 fois, renvoyer 3 *
     // face.
+    int[] occurencesFaces = new int[6];
+    int[] ds = {d1, d2, d3, d4, d5};
+    // TODO kata 5 : compter les occurrences de chaque face (1..6) puis
+    // renvoyer 2 * la plus haute face qui apparaît au moins 2 fois.
+    for (int i = 0; i < 5; i = i + 1) {
+      occurencesFaces[ds[i] - 1] += 1;
+    }
+    int max = 0;
+    for (int j = 0; j <= 5; j = j + 1) {
+      if (occurencesFaces[j] >= 3) {
+        max = j + 1;
+      }
+    }
+    score = max * 3;
     return score;
   }
 
@@ -104,12 +118,28 @@ public class Yahtzee {
   public static int petiteSuite(int d1, int d2, int d3, int d4, int d5) {
     int score = 0;
     // TODO kata 5 : vérifier que chaque face de 1 à 5 apparaît exactement une fois.
+    int[] occurencesFaces = new int[6];
+    int[] ds = {d1, d2, d3, d4, d5};
+
+    for (int i = 0; i < 5; i = i + 1) {
+      occurencesFaces[ds[i] - 1] += 1;
+    }
+    int val = 0;
+    for (int j = 0; j < 5; j = j + 1) {
+      if (occurencesFaces[j] == 1) {
+        val += 1;
+      }
+    }
+    if (val == 5) {
+      score += 15;
+    }
     return score;
   }
 
   /// 20 si les 5 dés sont exactement 2-3-4-5-6, 0 sinon.
   public static int grandeSuite(int d1, int d2, int d3, int d4, int d5) {
     int score = 0;
+
     return score;
   }
 

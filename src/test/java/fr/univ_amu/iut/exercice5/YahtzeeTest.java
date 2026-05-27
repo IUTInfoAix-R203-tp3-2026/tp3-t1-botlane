@@ -118,20 +118,17 @@ class YahtzeeTest {
 
   // ========= brelan =========
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   void le_brelan_avec_trois_des_donne_la_somme() {
     assertThat(Yahtzee.brelan(3, 3, 3, 4, 5)).isEqualTo(9);
   }
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   void le_brelan_avec_cinq_des_identiques_prend_trois() {
     // 5 dés identiques : la catégorie "brelan" ne compte que 3 de la valeur
     assertThat(Yahtzee.brelan(5, 5, 5, 5, 5)).isEqualTo(15);
   }
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   void le_brelan_sans_aucun_brelan_vaut_0() {
     assertThat(Yahtzee.brelan(1, 1, 2, 2, 5)).isZero();
@@ -139,25 +136,21 @@ class YahtzeeTest {
 
   // ========= petiteSuite =========
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   void la_petite_suite_1_a_5_vaut_15() {
     assertThat(Yahtzee.petiteSuite(1, 2, 3, 4, 5)).isEqualTo(15);
   }
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   void la_petite_suite_dans_un_ordre_quelconque_vaut_15() {
     assertThat(Yahtzee.petiteSuite(3, 1, 5, 4, 2)).isEqualTo(15);
   }
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   void la_petite_suite_avec_un_de_double_vaut_0() {
     assertThat(Yahtzee.petiteSuite(1, 2, 2, 4, 5)).isZero();
   }
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   void la_petite_suite_de_2_a_6_vaut_0() {
     // C'est une grande suite, pas une petite
@@ -166,7 +159,6 @@ class YahtzeeTest {
 
   // ========= grandeSuite =========
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   void la_grande_suite_2_a_6_vaut_20() {
     assertThat(Yahtzee.grandeSuite(2, 3, 4, 5, 6)).isEqualTo(20);
