@@ -69,7 +69,26 @@ public class Yahtzee {
   /// Somme de deux paires de valeurs différentes. 0 sinon.
   public static int deuxPaires(int d1, int d2, int d3, int d4, int d5) {
     int score = 0;
+    int[] occurencesFaces = new int[6];
+    int[] ds = {d1, d2, d3, d4, d5};
     // TODO kata 5 : trouver deux faces distinctes qui apparaissent >= 2 fois.
+    for (int i = 0; i < 5; i = i + 1) {
+      occurencesFaces[ds[i] - 1] += 1;
+    }
+    int max1 = 0;
+    int max2 = 0;
+    for (int j = 0; j <= 5; j = j + 1) {
+      if (occurencesFaces[j] >= 2) {
+        if (max1 == max2) {
+          max1 += j + 1;
+        } else {
+          max2 += j + 1;
+        }
+      }
+    }
+    if (max1 != 0 && max2 != 0) {
+      score += max1 * 2 + max2 * 2;
+    }
     return score;
   }
 

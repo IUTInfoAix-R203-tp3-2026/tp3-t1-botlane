@@ -96,25 +96,21 @@ class YahtzeeTest {
 
   // ========= deuxPaires =========
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   void les_deux_paires_donnent_la_somme_des_deux() {
     assertThat(Yahtzee.deuxPaires(1, 1, 2, 3, 3)).isEqualTo(8); // 1+1 + 3+3
   }
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   void les_deux_paires_prennent_les_deux_plus_hautes() {
     assertThat(Yahtzee.deuxPaires(2, 2, 5, 5, 6)).isEqualTo(14);
   }
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   void les_deux_paires_refusent_une_seule_paire() {
     assertThat(Yahtzee.deuxPaires(1, 1, 2, 3, 4)).isZero();
   }
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   void les_deux_paires_refusent_un_brelan_seul() {
     assertThat(Yahtzee.deuxPaires(3, 3, 3, 1, 2)).isZero();
