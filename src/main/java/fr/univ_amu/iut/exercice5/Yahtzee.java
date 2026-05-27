@@ -140,6 +140,21 @@ public class Yahtzee {
   public static int grandeSuite(int d1, int d2, int d3, int d4, int d5) {
     int score = 0;
 
+    int[] occurencesFaces = new int[6];
+    int[] ds = {d1, d2, d3, d4, d5};
+
+    for (int i = 0; i < 5; i = i + 1) {
+      occurencesFaces[ds[i] - 1] += 1;
+    }
+    int val = 0;
+    for (int j = 1; j <= 5; j = j + 1) {
+      if (occurencesFaces[j] == 1) {
+        val += 1;
+      }
+    }
+    if (val == 5) {
+      score += 20;
+    }
     return score;
   }
 
@@ -148,6 +163,27 @@ public class Yahtzee {
   public static int full(int d1, int d2, int d3, int d4, int d5) {
     int score = 0;
     // TODO kata 5 : un brelan (une face 3 fois) + une paire (autre face 2 fois).
+
+    int[] occurencesFaces = new int[6];
+    int[] ds = {d1, d2, d3, d4, d5};
+
+    for (int i = 0; i < 5; i = i + 1) {
+      occurencesFaces[ds[i] - 1] += 1;
+    }
+
+    int brelanFace = 0;
+    int paireFace = 0;
+    for (int j = 0; j <= 5; j = j + 1) {
+      if (occurencesFaces[j] == 2) {
+        paireFace = j + 1;
+      } else if (occurencesFaces[j] == 3) {
+        brelanFace = j + 1;
+      }
+    }
+    if (brelanFace != 0 && paireFace != 0) {
+      score += brelanFace * 3 + paireFace * 2;
+    }
+
     return score;
   }
 }

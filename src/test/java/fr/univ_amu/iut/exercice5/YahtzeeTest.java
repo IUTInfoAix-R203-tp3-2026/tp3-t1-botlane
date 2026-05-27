@@ -2,7 +2,6 @@ package fr.univ_amu.iut.exercice5;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -164,14 +163,12 @@ class YahtzeeTest {
     assertThat(Yahtzee.grandeSuite(2, 3, 4, 5, 6)).isEqualTo(20);
   }
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   void la_grande_suite_de_1_a_5_vaut_0() {
     // C'est une petite suite, pas une grande
     assertThat(Yahtzee.grandeSuite(1, 2, 3, 4, 5)).isZero();
   }
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   void la_grande_suite_avec_un_de_double_vaut_0() {
     assertThat(Yahtzee.grandeSuite(2, 3, 3, 5, 6)).isZero();
@@ -179,25 +176,21 @@ class YahtzeeTest {
 
   // ========= full =========
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   void le_full_avec_brelan_de_2_et_paire_de_6_donne_la_somme_des_5_des() {
     assertThat(Yahtzee.full(2, 2, 2, 6, 6)).isEqualTo(18);
   }
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   void le_full_avec_brelan_de_5_et_paire_de_3_donne_la_somme_des_5_des() {
     assertThat(Yahtzee.full(5, 5, 5, 3, 3)).isEqualTo(21);
   }
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   void le_full_sans_brelan_vaut_0() {
     assertThat(Yahtzee.full(2, 2, 3, 4, 5)).isZero();
   }
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   void le_full_sans_paire_vaut_0() {
     assertThat(Yahtzee.full(3, 3, 3, 4, 5)).isZero();
