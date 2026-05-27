@@ -49,8 +49,20 @@ public class Yahtzee {
   /// Valeur de la paire la plus haute (2 * valeur). 0 si aucune paire.
   public static int paire(int d1, int d2, int d3, int d4, int d5) {
     int score = 0;
+    int[] occurencesFaces = new int[6];
+    int[] ds = {d1, d2, d3, d4, d5};
     // TODO kata 5 : compter les occurrences de chaque face (1..6) puis
     // renvoyer 2 * la plus haute face qui apparaît au moins 2 fois.
+    for (int i = 0; i < 5; i = i + 1) {
+      occurencesFaces[ds[i] - 1] += 1;
+    }
+    int max = 0;
+    for (int j = 0; j <= 5; j = j + 1) {
+      if (occurencesFaces[j] >= 2) {
+        max = j + 1;
+      }
+    }
+    score = max * 2;
     return score;
   }
 

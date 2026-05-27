@@ -56,19 +56,16 @@ class YahtzeeTest {
 
   // ========= nombres =========
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   void le_decompte_compte_trois_uns() {
     assertThat(Yahtzee.nombres(1, new int[] {1, 2, 1, 4, 1})).isEqualTo(3);
   }
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   void le_decompte_compte_deux_six() {
     assertThat(Yahtzee.nombres(6, new int[] {1, 6, 3, 6, 2})).isEqualTo(12);
   }
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   void le_decompte_retourne_zero_si_face_absente() {
     assertThat(Yahtzee.nombres(6, new int[] {1, 2, 3, 4, 5})).isZero();
@@ -76,26 +73,22 @@ class YahtzeeTest {
 
   // ========= paire =========
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   void la_paire_avec_deux_trois_vaut_6() {
     assertThat(Yahtzee.paire(3, 3, 1, 2, 4)).isEqualTo(6);
   }
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   void la_paire_retourne_la_plus_haute() {
     // 3-3 et 4-4 : on prend la plus haute
     assertThat(Yahtzee.paire(3, 3, 4, 4, 1)).isEqualTo(8);
   }
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   void la_paire_avec_quatre_six_vaut_12() {
     assertThat(Yahtzee.paire(6, 6, 6, 6, 1)).isEqualTo(12);
   }
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   void la_paire_sans_aucune_paire_vaut_0() {
     assertThat(Yahtzee.paire(1, 2, 3, 4, 5)).isZero();
